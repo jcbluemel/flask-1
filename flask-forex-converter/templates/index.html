@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Currency Converter
+{% endblock %}
+
+{% block content %}
+
+  <!-- currency converter homepage-used in test -->
+  <h1>Currency Converter!</h1>
+
+  <div class="container">
+
+    <div class="content">
+
+      <form action="/results" method="POST">
+
+        {% for msg in get_flashed_messages() %}
+          <p class="error">{{ msg }}</p>
+        {% endfor %}
+
+        <div class="input-field">
+          <label for="conv-from">Converting from</label>
+          <input name="conv-from" type="text" maxlength="3">
+        </div>
+        <div class="input-field">
+          <label for="conv-to">Converting to</label>
+          <input name="conv-to" type="text" maxlength="3">
+        </div>
+        <div class="input-field">
+          <label for="amount">Amount:</label>
+          <input name="amount" type="number" step="any">
+        </div>
+        <div>
+          <button class="btn">Convert</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
